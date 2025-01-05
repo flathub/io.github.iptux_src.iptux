@@ -11,6 +11,8 @@ finish-args:
   - --filesystem=home
 
 modules:
+  - "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json"
+
   - name: libsigc++
     buildsystem: meson
     sources:
