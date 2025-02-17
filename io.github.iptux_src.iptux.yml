@@ -11,6 +11,7 @@ finish-args:
   - --filesystem=home
 
 modules:
+  - "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json"
   - name: libsigc++
     buildsystem: meson
     sources:
@@ -45,13 +46,11 @@ modules:
         url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.5.tar.gz
         sha256: f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2
 
-  - "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json"
-
   - name: iptux
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/iptux-src/iptux.git
-        commit: 0b95385eba4bff9a969da1fe09a7f8991d206455
+      - type: archive
+        url: https://github.com/iptux-src/iptux/archive/refs/tags/v0.9.4.tar.gz
+        sha256: 8af01c724ba19270014e4c84df7884778654c9f4f1c66a15554c9d7dd5547edc
     config-opts:
       - --buildtype=release
