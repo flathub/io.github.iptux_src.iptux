@@ -9,7 +9,9 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --filesystem=home
-
+build-options:
+  runtime-extensions:
+    org.freedesktop.Sdk.Extension.cmake
 modules:
   - name: libsigc++
     buildsystem: meson
@@ -17,26 +19,6 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.8.tar.xz
         sha256: 235a40bec7346c7b82b6a8caae0456353dc06e71f14bc414bcc858af1838719a
-
-  - name: gflags
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_SHARED_LIBS=ON
-    sources:
-      - type: archive
-        url: https://github.com/gflags/gflags/archive/v2.2.2.tar.gz
-        sha256: 34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf
-
-  - name: glog
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_SHARED_LIBS=ON
-    sources:
-      - type: archive
-        url: https://github.com/google/glog/archive/v0.7.1.tar.gz
-        sha256: 00e4a87e87b7e7612f519a41e491f16623b12423620006f59f5688bfd8d13b08
 
   - name: jsoncpp
     buildsystem: meson
@@ -46,11 +28,12 @@ modules:
         sha256: f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2
 
   - "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json"
+
   - name: iptux
     buildsystem: meson
     sources:
-      - type: archive
-        url: https://github.com/iptux-src/iptux/archive/refs/tags/v0.9.4.tar.gz
-        sha256: 8af01c724ba19270014e4c84df7884778654c9f4f1c66a15554c9d7dd5547edc
+      - type: git
+        url: https://github.com/iptux-src/iptux.git
+        commit: 8c83a9caeb725ca7474d4275b4ad83d455e1b6fe
     config-opts:
       - --buildtype=release
