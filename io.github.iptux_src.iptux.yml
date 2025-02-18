@@ -9,9 +9,7 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --filesystem=home
-build-options:
-  runtime-extensions:
-    org.freedesktop.Sdk.Extension.cmake
+
 modules:
   - name: libsigc++
     buildsystem: meson
