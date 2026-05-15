@@ -1,6 +1,6 @@
 app-id: io.github.iptux_src.iptux
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: iptux
 finish-args:
@@ -25,13 +25,13 @@ modules:
         url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.5.tar.gz
         sha256: f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2
 
-  - "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json"
+  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
 
   - name: iptux
     buildsystem: meson
+    config-opts:
+      - --buildtype=release
     sources:
       - type: git
         url: https://github.com/iptux-src/iptux.git
         commit: 8c83a9caeb725ca7474d4275b4ad83d455e1b6fe
-    config-opts:
-      - --buildtype=release
